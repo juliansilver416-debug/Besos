@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useAudioRecorder } from './hooks/useAudioRecorder';
+import { useAudioRecorder } from "./hooks/useAudioRecorder";
 import { translateAudioContent, translateText } from './services/gemini';
 import { ChatMessage, Language, Reaction } from './types';
 import { 
