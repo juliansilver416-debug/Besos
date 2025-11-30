@@ -1,26 +1,40 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useAudioRecorder } from "./hooks/useAudioRecorder";
 import { translateAudioContent, translateText } from './services/gemini';
 import { ChatMessage, Language, Reaction } from './types';
-  Mic, 
-  Send, 
-  Loader2, 
-  Heart,
-  Globe,
-  Keyboard,
-  User,
-  Lock,
-  ArrowRight,
-  CheckCircle2,
-  LogOut,
-  Smile,
-  Plus,
-  Play,
-  Pause,
-  Share2,
-  Check,
-  Link as LinkIcon
-} from 'lucide-react';
+
+// triggering redeploy
+
+function useAudioRecorder(): {
+  isRecording: boolean;
+  audioBlob: Blob | null;
+  startRecording: () => void;
+  stopRecording: () => void;
+  resetRecording: () => void;
+} {
+  const [isRecording, setIsRecording] = useState(false);
+  const [audioBlob, setAudioBlob] = useState<Blob | null>(null);
+
+  const startRecording = () => {
+    setIsRecording(true);
+  };
+
+  const stopRecording = () => {
+    setIsRecording(false);
+  };
+
+  const resetRecording = () => {
+    setIsRecording(false);
+    setAudioBlob(null);
+  };
+
+  return {
+    isRecording,
+    audioBlob,
+    startRecording,
+    stopRecording,
+    resetRecording,
+  };
+}
 
 const ACCESS_CODE = "BESOS";
 const BROADCAST_CHANNEL_NAME = 'besos_chat_channel';
