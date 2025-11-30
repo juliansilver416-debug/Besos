@@ -1,0 +1,7 @@
+{
+  "name": "Besos - Real-time Translator",
+  "description": "A bi-directional voice translation chat app designed for seamless communication between English and Spanish speakers.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
